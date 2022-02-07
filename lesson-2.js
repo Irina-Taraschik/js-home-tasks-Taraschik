@@ -7,8 +7,14 @@
 
 var userString = prompt("Напечатайте строку.");
 
+// применяем к строке метод match
+// пишем регулярное выражение в которое передаем все элементы, 
+// которые хотели бы найти
+// g -глобальный поиск 
+// i - не зависимый от регистра
+
 function findVowels() {
-  var matched = userString.toLowerCase().match(/[аиоеёыуэюя]/g);
+  var matched = userString.match(/[аиоеёыуэюя]/gi);
   return matched ? matched.length : 0;
 }
 
