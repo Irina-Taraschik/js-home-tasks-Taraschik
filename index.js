@@ -18,6 +18,17 @@ numb = Math.max(...numbers);
 
 console.log(numb);
 
+// 
+var a = prompt('Введите числа через запятую').split(',');
+    var max = a[0];
+
+    for(i = a; i < a; i++){
+        if (a[i] > max) {max = a[i]}
+    }
+    document.write('Максимальное число, которое вы ввели: ' + max);
+
+
+
 // Задание 2.
 // Напишите функцию multiplyNumeric которая принимает на вход 
 // объект и возвращает объект в котором все числовые значения 
@@ -52,74 +63,20 @@ console.log(image);
 // При этом ноль 0 не должен заканчивать ввод, это разрешённое число.
 // Выводит сумму всех значений массива когда ввод прекращен.
 
-// var numbers = [];
-// var number;
-
-// function askNumber() {
-//   numbers[number] = prompt("Введите число");
-//   if (number !== '' || number !== null || !isNaN(number)) {
-//     numbers[number] = prompt("Введите число");
-//   } else {
-//   }
-// }
-// askNumber();
-
-// console.log(numbers);
-
-
-
-// function askNumber() {
-//   var numbers = [];
-//   for(var i = 0; i < 100; i++) {
-//     numbers[i] = prompt("Введите число", +i); // заполняем массив
-//     if(numbers[i] !== '' || numbers[i] !== null || !isNaN(numbers[i])) {
-//       numbers[i] = prompt("Введите число", +i);
-//     }
-//   }
-// }
-
-// askNumber();
-
-// console.log(numbers);
-
-// var numbers = [];
-// var i;
-// function askNumber() {
-//   numbers[i] = prompt("Введите число", +i); // заполняем массив
-//   while (numbers[i] !== null) {
-//     numbers[i] = prompt("Введите число", +i);
-//   }
-// }
-
-// askNumber();
-
-// console.log(numbers);
-
-// var numbers = []; 
-// var number = prompt("Введите число");
-// for (var i = 0; number !== null && number !== ""; i++) {
-//   var number = prompt("Введите число");
-//   numbers[i] = number;
-// }
-
-// console.log(numbers);
 
 var numbers = [];
-function askNumbers() {
-  for (var i = 0; number !== null && number !== ""; i++) {
-    var number = prompt("Введите число");
-    numbers[i] = number;
+var number;
+function askNumbers() {                                        // Проверки на не число нет!
+  for (var i = 0; number !== null && number !== ""; i++) {     // !isNaN(number) - не работает
+    var number = prompt("Введите число");                      // +prompt  ввод чисел становится бесконечным, почему?
+    numbers[i] = number * 1;                                   // умножаю на 1, чтобы привести к числу
   }
 }
-
 askNumbers();
 console.log(numbers);
 
-
-((number !== null) && (number !== "") && (!isNaN(number))
-
-
-
-
-
-
+var sum = 0;
+for(var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+alert(sum);
