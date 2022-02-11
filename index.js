@@ -52,30 +52,74 @@ console.log(image);
 // При этом ноль 0 не должен заканчивать ввод, это разрешённое число.
 // Выводит сумму всех значений массива когда ввод прекращен.
 
-var numbers = [];
+// var numbers = [];
+// var number;
 
-function askNumber() {
-  numbers[a] = prompt("Введите число");
-  if (number !== '' || number !== null || !isNaN(number)) {
-    numbers[a] = prompt("Введите число");
-  } else {
+// function askNumber() {
+//   numbers[number] = prompt("Введите число");
+//   if (number !== '' || number !== null || !isNaN(number)) {
+//     numbers[number] = prompt("Введите число");
+//   } else {
+//   }
+// }
+// askNumber();
+
+// console.log(numbers);
+
+
+
+// function askNumber() {
+//   var numbers = [];
+//   for(var i = 0; i < 100; i++) {
+//     numbers[i] = prompt("Введите число", +i); // заполняем массив
+//     if(numbers[i] !== '' || numbers[i] !== null || !isNaN(numbers[i])) {
+//       numbers[i] = prompt("Введите число", +i);
+//     }
+//   }
+// }
+
+// askNumber();
+
+// console.log(numbers);
+
+// var numbers = [];
+// var i;
+// function askNumber() {
+//   numbers[i] = prompt("Введите число", +i); // заполняем массив
+//   while (numbers[i] !== null) {
+//     numbers[i] = prompt("Введите число", +i);
+//   }
+// }
+
+// askNumber();
+
+// console.log(numbers);
+
+// var numbers = []; 
+// var number = prompt("Введите число");
+// for (var i = 0; number !== null && number !== ""; i++) {
+//   var number = prompt("Введите число");
+//   numbers[i] = number;
+// }
+
+// console.log(numbers);
+
+var numbers = [];
+function askNumbers() {
+  for (var i = 0; number !== null && number !== ""; i++) {
+    var number = prompt("Введите число");
+    numbers[i] = number;
   }
 }
-askNumber();
 
+askNumbers();
 console.log(numbers);
 
 
+((number !== null) && (number !== "") && (!isNaN(number))
 
 
 
 
 
 
-function writeYourGenres() {
-	for (let i = 1; i++) {
-		 personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
-	}
-}
-
-writeYourGenres();
