@@ -9,23 +9,16 @@ var tasksCompleted = {
   'Anton': 99
 };
 
-
-numbers = [];
-for (var key in tasksCompleted.rating) {
-  numbers.push(tasksCompleted.rating[key]);
-}
-numb = Math.max(...numbers);
-
-console.log(numb);
-
-// 
-var a = prompt('Введите числа через запятую').split(',');
-    var max = a[0];
-
-    for(i = a; i < a; i++){
-        if (a[i] > max) {max = a[i]}
+function topTasks(tasksCompleted) {
+  var min = 0;
+  for (var key in tasksCompleted.rating) {
+    if (min < tasksCompleted[person]) {
+      min = tasksCompleted[person];
     }
-    document.write('Максимальное число, которое вы ввели: ' + max);
+  }
+}
+console.log(topTasks(tasksCompleted));
+  
 
 
 
