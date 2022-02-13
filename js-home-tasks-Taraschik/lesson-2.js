@@ -91,7 +91,7 @@ alert('ваше ФИО: ' + surname + ' ' + firstName + ' ' + patronymic + '\n' 
 'ваш пол: ' + gender + '\n' +
 'вы на пенсии: ' + isRetired);
 
-//  Задание 2. Измененное решение
+//  Задание 2. Измененное решение.
 var surname;
 var age;
 
@@ -111,10 +111,10 @@ function askName(name, a) {
 };
 
 function askAge() {
-	age = +prompt('Сколько Вам лет?');
-	while (age == '' || age == null || isNaN(age)) {
-		age = +prompt('Значение некорректно. Сколько Вам лет?');
-	}
+  age = +prompt('Сколько Вам лет?');
+  while (age == '' || age == null || isNaN(age)) {
+    age = +prompt('Значение некорректно. Сколько Вам лет?');
+  }
 };
 
 askSurname();
