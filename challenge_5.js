@@ -21,11 +21,10 @@ var John = {
   }
 }
 John.calcTips();
-console.log(John.tips);
-console.log(John.finalValues);
+console.log('John\'s tips are: ' + John.tips);
+console.log('John\'s bills plus tips are: ' + John.finalValues);
 
 // Challenge 5. Extra part
-
 var Mark = {
   fullName: 'Mark Simmons',
   bills: [77, 375, 110, 45],
@@ -48,5 +47,14 @@ var Mark = {
   }
 }
 Mark.calcTips();
-console.log(Mark.tips);
-console.log(Mark.finalValues);
+console.log('Mark\'s tips are: ' + Mark.tips);
+console.log('Marks\'s bills plus tips are: ' + Mark.finalValues);
+
+function calcAverageTips() {
+  var total = 0;
+  for (var i = 0; i < John.tips.length; i++) {
+    total += John.tips[i];
+  }
+  return total / John.tips.length;
+}
+console.log('John\'s average tip is ' + calcAverageTips(John.tips));
