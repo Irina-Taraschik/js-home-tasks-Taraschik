@@ -56,12 +56,11 @@ console.log(image);
 // При этом ноль 0 не должен заканчивать ввод, это разрешённое число.
 // Выводит сумму всех значений массива когда ввод прекращен.
 
-
 var numbers = [];
 var number;
 function askNumbers() {                                        // Проверки на не число нет!
   for (var i = 0; number !== null && number !== ""; i++) {     // !isNaN(number) - не работает
-    var number = prompt("Введите число");                      // +prompt  ввод чисел становится бесконечным, почему?
+    var number = +prompt("Введите число");                      // +prompt  ввод чисел становится бесконечным, почему?
     numbers[i] = number * 1;                                   // умножаю на 1, чтобы привести к числу
   }
 }
@@ -73,3 +72,8 @@ for(var i = 0; i < numbers.length; i++) {
   sum += numbers[i];
 }
 alert(sum);
+
+
+
+
+
