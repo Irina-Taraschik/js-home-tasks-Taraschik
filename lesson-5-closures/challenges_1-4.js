@@ -27,7 +27,6 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
   console.log('There is a draw');
 }
 
-
 if (scoreJohn > scoreMike) {
   console.log('John\'s team wins with ' + scoreJohn + ' points');
 } else if (scoreMike > scoreJohn) {
@@ -59,9 +58,7 @@ var finalValues = [bills[0] + tips[0],
 
 console.log(tips, finalValues);
 
-
-//
-
+// class work
 var John = {
   firstName: 'John',
   lastName: 'Smith',
