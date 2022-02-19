@@ -24,7 +24,7 @@ John.calcTips();
 console.log('John\'s tips are: ' + John.tips);
 console.log('John\'s bills plus tips are: ' + John.finalValues);
 
-// Challenge 5. Extra part
+// Challenge 5. Extra part.
 var Mark = {
   fullName: 'Mark Simmons',
   bills: [77, 375, 110, 45],
