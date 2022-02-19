@@ -22,6 +22,7 @@ console.log( Beatles2 ); // { name: 'Beatles', AlbumsCount: 12 }
 
 Beatles2.name='The Beatles';
 Beatles2.AlbumsCount++;
+
 console.log( Beatles2 ); // { name: 'The Beatles', AlbumsCount: 13 }
 console.log( Beatles ); // { name: 'The Beatles', AlbumsCount: 13 }
 
@@ -32,6 +33,7 @@ console.log( Beatles ); // { name: 'The Beatles', AlbumsCount: 13 }
 
 function Message(Txt,Options) {
   Options = Options || {};
+  
   /*Не нужно беспокоиться о ПОРЯДКЕ указания значений — хэш это 
   неупорядоченное множество, и опции сработают, в каком бы порядке мы их не указали.*/
   var Header = Options.Header || 'ВНИМАНИЕ!';
@@ -79,15 +81,15 @@ function ColorCode(ColorName) {
 console.log(ColorCode('red')); // #FF0000
 console.log(ColorCode('white')); // #FFFFFF
 
-/*
-Примеры перекодировок
+/* Примеры перекодировок
+
 var WordsH={ 'корова':'cow', 'лошадь':'horse' };
 var TransLatH={ 'т':'t', 'у':'u', 'ё':'jo' };
 var NumbersH={ 0:'ноль', 1:'один', 2:'два' };
 
 /*  Хэш как счётчик  */
-
 var AnimalsA = [ 'собака', 'кошка', 'тушкан', 'собака', 'собака', 'тушкан' ];
+
 var CountH = {}; // ключ - животное, значение - сколько раз оно встретилось
 
 for (var i = 0; i < AnimalsA.length; i++) {
@@ -106,6 +108,7 @@ console.log( CountH ); // { 'собака': 3, 'кошка': 1, 'тушкан': 
 т.е. только уникальные значения.*/
 
 var ValuesA = [55,77,55,66,77];
+
 var UsedH = {}; // ключ хэша - число, которое уже встречалось
 
 for (var i = 0; i < ValuesA.length; i++) {
