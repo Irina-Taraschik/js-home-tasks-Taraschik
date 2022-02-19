@@ -20,8 +20,3 @@ function removeClass(obj, cls) {
 
 removeClass(obj1, "menu");
 console.log(obj1);
-
-
-
-
-
