@@ -6,7 +6,6 @@ var A1=[5,6];
 var A2=[5,6];
 A1==A2
 
-
 var H1={a:5,b:6};
 var H2={a:5,b:6};
 H1==H2
@@ -19,7 +18,6 @@ var Beatles = {
 };
 
 var Beatles2 = Beatles;
-
 console.log( Beatles2 ); // { name: 'Beatles', AlbumsCount: 12 }
 
 Beatles2.name='The Beatles';
@@ -28,10 +26,7 @@ Beatles2.AlbumsCount++;
 console.log( Beatles2 ); // { name: 'The Beatles', AlbumsCount: 13 }
 console.log( Beatles ); // { name: 'The Beatles', AlbumsCount: 13 }
 
-// ------------------------
-
 /* Хэш как набор опций (аргументы функции) */
-
 /* Разрабатываем функцию, которая показывает окошко с сообщением; 
 в самом общем случае, ей нужно знать текст заголовка окошка, 
 текст внутри окошка, и (к примеру) сколько раз повторить текст внутри окошка. */
@@ -71,9 +66,7 @@ Message( 'До свидания!' );
 ВНИМАНИЕ!
 1 До свидания! */
 
-
 /* Хэш как словарь (таблица перекодировки)  */
-
 function ColorCode(ColorName) {
   var ColorsH={
     red:'#FF0000',
@@ -88,18 +81,13 @@ function ColorCode(ColorName) {
 console.log(ColorCode('red')); // #FF0000
 console.log(ColorCode('white')); // #FFFFFF
 
-/*
-
-Примеры перекодировок
+/* Примеры перекодировок
 
 var WordsH={ 'корова':'cow', 'лошадь':'horse' };
 var TransLatH={ 'т':'t', 'у':'u', 'ё':'jo' };
 var NumbersH={ 0:'ноль', 1:'один', 2:'два' };
 
-
-
 /*  Хэш как счётчик  */
-
 var AnimalsA = [ 'собака', 'кошка', 'тушкан', 'собака', 'собака', 'тушкан' ];
 
 var CountH = {}; // ключ - животное, значение - сколько раз оно встретилось
@@ -113,7 +101,6 @@ for (var i = 0; i < AnimalsA.length; i++) {
 }
 
 console.log( CountH ); // { 'собака': 3, 'кошка': 1, 'тушкан': 2 }
-
 
 /* Хэш как память (как запомнить что что-то уже случалось)  */
 /*Пусть у нас есть массив, в котором некоторые числа повторяются. 
