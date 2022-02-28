@@ -19,9 +19,6 @@ function topTasks(tasksCompleted) {
 }
 console.log(topTasks(tasksCompleted));
   
-
-
-
 // Задание 2.
 // Напишите функцию multiplyNumeric которая принимает на вход 
 // объект и возвращает объект в котором все числовые значения 
@@ -44,7 +41,6 @@ function multiplyNumeric() {
   }
 }
 multiplyNumeric(image);
-
 console.log(image);
 
 // Задание 3. Калькулятор.
@@ -71,9 +67,5 @@ var sum = 0;
 for(var i = 0; i < numbers.length; i++) {
   sum += numbers[i];
 }
+
 alert(sum);
-
-
-
-
-
