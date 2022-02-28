@@ -17,7 +17,6 @@ function findVowels() {
   var matched = userString.match(/[аиоеёыуэюя]/gi);
   return matched ? matched.length : 0;
 }
-
 console.log(findVowels(userString));
 
 // Задание №2
