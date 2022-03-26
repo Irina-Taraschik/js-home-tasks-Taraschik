@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+#clock-face {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #fcca66;
+  margin: 30px auto 0;
+  position: relative;
+}
+#digital-time-wrap {
+  width: 100px;
+  font-size: 25px;
+  position: absolute;
+  margin: 0 auto;
+}
+.little-circle {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  color: #333;
+  text-align: center;
+  background-color: #48b381;
+  position: absolute;
+}
+.arrow {
+  position: absolute;
+  background-color: #2b2a29;
+}
+
+
