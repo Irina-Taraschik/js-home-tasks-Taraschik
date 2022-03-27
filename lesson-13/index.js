@@ -1,6 +1,6 @@
 'use strict';
 (function() {
-  var clockFace = document.getElementById('clock-face');
+  var clockFace = document.getElementById('clock-face').createElementNS("http://www.w3.org/2000/svg", "clockFace");
   var clockFaceClone = clockFace.cloneNode();
   var arrows = [{id: 'seconds-arrow', width: 2, height: 140, top: 20},
                 {id: 'minutes-arrow', width: 5, height: 120, top: 40},
@@ -102,3 +102,14 @@
 
   startShowClock();
 }());
+
+
+var draw = SVG().addTo('#drawing')
+  , rect = draw.circle(500, 500).fill('#333');
+
+var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svg.setAttribute('style', 'border: 1px solid black');
+svg.setAttribute('width', '600');
+svg.setAttribute('height', '250');
+svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+document.body.appendChild(svg);  
