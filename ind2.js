@@ -1,25 +1,39 @@
 'use strict';
 (function() {
-  var clockFace = document.getElementById('clock-face');
+  var clockFace = document.getElementById('clock-face').createElementNS("http://www.w3.org/2000/svg", "clockFace");
   var clockFaceClone = clockFace.cloneNode();
-  var arrows = [{id: 'seconds-arrow', width: 2, height: 140, top: 20},
-                {id: 'minutes-arrow', width: 5, height: 120, top: 40},
-                {id: 'hours-arrow', width: 10, height: 90, top: 70,}];
+
+  var arrows = document.createElementNS("http://www.w3.org/2000/svg", "arrows");
+  var arrows = [secondsArrow, minutesArrow, hoursArrow];
+  
+  var secondsArrow = document.getElementById('secondsArrow').createElementNS("http://www.w3.org/2000/svg", "secondsArrow");
+  secondsArrow.setAttribute('style', 'border: 1px solid black');
+  secondsArrow.setAttribute('width', '2');
+  secondsArrow.setAttribute('height', '140');
+  secondsArrow.setAttribute('top', '20');
+  secondsArrow.setAttribute('x1', '0');
+  secondsArrow.setAttribute('y1', '12');
+  secondsArrow.setAttribute('x2', '0');
+  secondsArrow.setAttribute('y2', '-130');
+  secondsArrow.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+  document.getElementById("secondsArrow").appendChild(secondsArrow);
+
+  var minutesArrow = document.getElementById('minutesArrow').createElementNS("http://www.w3.org/2000/svg", "minutesArrow");
+  minutesArrow.setAttribute('width', '5');
+  minutesArrow.setAttribute('height', '120');
+  minutesArrow.setAttribute('top', '40');
+  var hoursArrow = document.getElementById('hoursArrow').createElementNS("http://www.w3.org/2000/svg", "hoursArrow");
+  hoursArrow.setAttribute('width', '10');
+  hoursArrow.setAttribute('height', '90');
+  hoursArrow.setAttribute('top', '70');
+  
   var DIGIT_TIME_WRAP_W = 100;
   var LITTLE_CIRCLE_H = 40;
   var LITTLE_CIRCLE_W = 40;
   var CLOCK_HEIGHT = 300;
   var CLOCK_WIDTH = 300;
   var digitalTimeWrap;
-  var secondsArrow = document.getElementById('seconds-arrow').createElementNS("http://www.w3.org/2000/svg", "secondsArrow");
-  secondsArrow.setAttribute('style', 'border: 1px solid black');
-  secondsArrow.setAttribute('x1', '0');
-  secondsArrow.setAttribute('y1', '12');
-  secondsArrow.setAttribute('x2', '0');
-  secondsArrow.setAttribute('y2', '-130');
-  secondsArrow.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
-  document.getElementById("seconds-arrow").appendChild(secondsArrow);
-  
+  var secondsArrow;
   var minutesArrow;
   var hoursArrow;
 
@@ -101,9 +115,9 @@
     createDigitalTime(CLOCK_WIDTH, clockFaceClone, getTime().lastDate, DIGIT_TIME_WRAP_W);
     createArrows(CLOCK_WIDTH, clockFaceClone, arrows);
     document.body.replaceChild(clockFaceClone, clockFace);
-    secondsArrow = document.getElementById('seconds-arrow');
-    minutesArrow = document.getElementById('minutes-arrow');
-    hoursArrow = document.getElementById('hours-arrow');
+    secondsArrow = document.getElementById('secondsArrow');
+    minutesArrow = document.getElementById('minutesArrow');
+    hoursArrow = document.getElementById('hoursArrow');
     digitalTimeWrap = document.getElementById('digital-time-wrap');
     showClock();
   }
