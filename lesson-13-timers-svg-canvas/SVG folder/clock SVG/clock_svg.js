@@ -7,9 +7,9 @@ var svg = document.getElementById("wrapper"),
 	svgCenterY,
 	bigCircleForWatch,
 	// для электронных часов
-	svgDigitalWatch,
-	svgDigitalWatchText,
-	radiusForDigitalWatch = 70,
+	digitalWatch,
+	digitalWatchText,
+	digitalWatchRadius = 70,
 	radius = 120,
 	angleValue = 0,
 	distanceOfDigits = 30,
@@ -26,8 +26,7 @@ var svg = document.getElementById("wrapper"),
 	hoursDeg = 30 * (time.getHours() + (1 / 60) * time.getMinutes()),
 	minutesDeg = 6 * (time.getMinutes() + (1 / 60) * time.getSeconds()),
 	secondsDeg = 6 * time.getSeconds() - 6,
-	hourDigits = 12,
-  svgCircle;
+	hourDigits = 12;
 
 svg.style.width = widthOfSvg;
 svg.style.height = heightOfSvg;
@@ -78,18 +77,18 @@ for (var i = 1; i <= hourDigits; i++) {
 }
 
 // для электронных часов
-svgDigitalWatch = document.createElementNS('http://www.w3.org/2000/svg', "rect");
-svg.appendChild(svgDigitalWatch);
-svgDigitalWatch.setAttribute("x", (svgCenterX - svgDigitalWatch.getBoundingClientRect().width / 2) - svg.getBoundingClientRect().left);
-svgDigitalWatch.setAttribute("y", (svgCenterY - radiusForDigitalWatch) - svg.getBoundingClientRect().left);
-svgDigitalWatch.setAttribute("fill", "none");
-svgDigitalWatchText = document.createElementNS('http://www.w3.org/2000/svg', "text");
-svgDigitalWatchText.setAttribute("x", (svgCenterX - svgDigitalWatch.getBoundingClientRect().width / 2) - svg.getBoundingClientRect().left);
-svgDigitalWatchText.setAttribute("y", (svgCenterY - radiusForDigitalWatch) - svg.getBoundingClientRect().top);
-svgDigitalWatchText.setAttribute("text-anchor", "middle");
-svgDigitalWatchText.setAttribute("dominant-baseline", "central");
-svgDigitalWatchText.style.fontSize = 25;
-svgDigitalWatchText = svg.appendChild(svgDigitalWatchText);
+digitalWatch = document.createElementNS('http://www.w3.org/2000/svg', "rect");
+svg.appendChild(digitalWatch);
+digitalWatch.setAttribute("x", (svgCenterX - digitalWatch.getBoundingClientRect().width / 2) - svg.getBoundingClientRect().left);
+digitalWatch.setAttribute("y", (svgCenterY - digitalWatchRadius) - svg.getBoundingClientRect().left);
+digitalWatch.setAttribute("fill", "none");
+digitalWatchText = document.createElementNS('http://www.w3.org/2000/svg', "text");
+digitalWatchText.setAttribute("x", (svgCenterX - digitalWatch.getBoundingClientRect().width / 2) - svg.getBoundingClientRect().left);
+digitalWatchText.setAttribute("y", (svgCenterY - digitalWatchRadius) - svg.getBoundingClientRect().top);
+digitalWatchText.setAttribute("text-anchor", "middle");
+digitalWatchText.setAttribute("dominant-baseline", "central");
+digitalWatchText.style.fontSize = 25;
+digitalWatchText = svg.appendChild(digitalWatchText);
 
 // для стрелок часов
 hourArrow = document.createElementNS('http://www.w3.org/2000/svg', "line");
@@ -133,7 +132,7 @@ secondArrow.style.transformOrigin = "center 150px";
 function arrows() {
 		// электронные часы
 		var time = new Date(); //текущее время
-	    svgDigitalWatchText.innerHTML = time.toLocaleTimeString();
+	    digitalWatchText.innerHTML = time.toLocaleTimeString();
 		// секундные стрелки
 		secondsDeg += 6; //каждую секунду стрелка секунда будет двигать на 6 градусов
 	    secondArrow.style.transform = "rotate(" + secondsDeg + "deg)";
