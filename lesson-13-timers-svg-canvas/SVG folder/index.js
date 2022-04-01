@@ -3,17 +3,15 @@ const baseRadius = 300; //радиус циферблата
 const numbersBaseRadius = baseRadius / 2.5; //радиус оси цифр циферблата
 const circleRadius = 30; // радиус кружков с цифрами
 const dotSize = 14; //размер точки в центре часов
-const SVG = document.getElementById('wrapper'),
-    widthOfSVG = 300,
-    heightOfSVG = 300,
-    
+const svg = document.getElementById('wrapper');
+let clockFace;
+let svgCenterX;
+let svgCenterY;
 
-
-SVG.appendChild(createWatch());
+svg.appendChild(createWatch());
 setInterval(tickTimer, 1000);
 
 // UI
-
 function createWatch() {
   let base = document.createElement('div');
   base.id = 'base';
@@ -29,7 +27,16 @@ function createWatch() {
 }
 
 function createClockFace() {
-  let clockFace = document.createDocumentFragment();
+  /// пр изменении clockface на svg - пропадают цифры с кружками
+  clockFace = document.createElementNS('http://www.w3.org/2000/svg', "circle");
+  // clockFace.setAttribute("cx", 150);
+  // clockFace.setAttribute("cy", 150);
+  // clockFace.setAttribute("r", 150);
+  clockFace.setAttribute("fill", "black");
+  svg.appendChild(clockFace);
+  svgCenterX = svg.getBoundingClientRect().left + svg.getBoundingClientRect().width / 2; //узнаем центр svg по X
+  svgCenterY = svg.getBoundingClientRect().top + svg.getBoundingClientRect().height / 2; //узнаем центр svg по Y
+
   for (let number = 1; number <= 12; number++) {
     let angle = number * 30 / 180 * Math.PI;
     let x = ((baseRadius - circleRadius) / 2) + Math.round(Math.sin(angle) * numbersBaseRadius);
@@ -70,6 +77,46 @@ function createArrow(arrowType, arrowWidth) {
   return arrow;
 }
 
+////////////////////////////////////////////////////////////////
+function createHourArrow() {
+  let hourArrow = document.createElementNS('http://www.w3.org/2000/svg', "line");
+  hourArrow.setAttribute("x1", svgCenterX - svg.getBoundingClientRect().left);
+  hourArrow.setAttribute("y1", svgCenterY - 50 - svg.getBoundingClientRect().top);
+  hourArrow.setAttribute("x2", svgCenterX - svg.getBoundingClientRect().left);
+  hourArrow.setAttribute("y2", svgCenterY);
+  hourArrow.setAttribute("stroke", "black");
+  hourArrow.setAttribute("stroke-width", 9);
+  hourArrow.setAttribute("stroke-linecap", "round");
+  svg.appendChild(hourArrow);
+}
+createHourArrow();
+
+function createMinuteArrow() {
+  minuteArrow = document.createElementNS('http://www.w3.org/2000/svg', "line");
+  minuteArrow.setAttribute("x1", svgCenterX - svg.getBoundingClientRect().left);
+  minuteArrow.setAttribute("y1", svgCenterY - 110 - svg.getBoundingClientRect().top);
+  minuteArrow.setAttribute("x2", svgCenterX - svg.getBoundingClientRect().left);
+  minuteArrow.setAttribute("y2", svgCenterY);
+  minuteArrow.setAttribute("stroke", "black");
+  minuteArrow.setAttribute("stroke-width", 5);
+  minuteArrow.setAttribute("stroke-linecap", "round");
+  svg.appendChild(minuteArrow);
+}
+
+function createSecondArrow() {
+  let secondArrow = document.createElementNS('http://www.w3.org/2000/svg', "line");
+  secondArrow.setAttribute("x1", svgCenterX - svg.getBoundingClientRect().left);
+  secondArrow.setAttribute("y1", svgCenterY - 135 - svg.getBoundingClientRect().top);
+  secondArrow.setAttribute("x2", svgCenterX - svg.getBoundingClientRect().left);
+  secondArrow.setAttribute("y2", svgCenterY);
+  secondArrow.setAttribute("stroke", "red");
+  secondArrow.setAttribute("stroke-width", 2);
+  secondArrow.setAttribute("stroke-linecap", "round");
+  svg.appendChild(secondArrow);
+
+}
+////////////////////////////////////////////////////////////////
+
 function createDecorativeDot(size) {
   let dot = document.createElement('div');
   dot.className = 'dot';
@@ -81,6 +128,7 @@ function createDecorativeDot(size) {
 }
 
 // Logic
+
 function tickTimer() {
   let now = new Date();
   let thisSecond = now.getSeconds();
