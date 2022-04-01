@@ -12,17 +12,17 @@ var svg = document.getElementById("wrapper"),
 	digitalWatchRadius = 70,
 	radius = 120,
 	angleValue = 0,
-	distanceOfDigits = 30,
+	distance = 30,
 	time = new Date(),
 	// для стрелок часов
 	hourArrow,
-	elemForArrowHoursWidth = 9,
+	hourArrowWidth = 9,
 	minuteArrow,
-	elemForArrowMinutesHeight = 110,
-	elemForArrowMinutesWidth = 5,
+	minuteArrowHeight = 110,
+	minuteArrowWidth = 5,
 	secondArrow,
-	elemForArrowSecondsHeight = 135,
-	elemForArrowSecondsWidth = 2,
+	secondArrowHeight = 135,
+	secondArrowWidth = 2,
 	hoursDeg = 30 * (time.getHours() + (1 / 60) * time.getMinutes()),
 	minutesDeg = 6 * (time.getMinutes() + (1 / 60) * time.getSeconds()),
 	secondsDeg = 6 * time.getSeconds() - 6,
@@ -53,7 +53,7 @@ for (var i = 1; i <= hourDigits; i++) {
 		smallCircleRadius = 20,
     smallCircleColor = "#F9F9F9";
 
-	angleValue += distanceOfDigits;
+	angleValue += distance;
 	angle = angleValue / 180 * Math.PI;
 
 	smallCircleCX = Math.round(svgCenterX + radius * Math.sin(angle) - svg.getBoundingClientRect().left);
@@ -97,29 +97,29 @@ hourArrow.setAttribute("y1", svgCenterY - 50 - svg.getBoundingClientRect().top);
 hourArrow.setAttribute("x2", svgCenterX - svg.getBoundingClientRect().left);
 hourArrow.setAttribute("y2", svgCenterY);
 hourArrow.setAttribute("stroke", "black");
-hourArrow.setAttribute("stroke-width", elemForArrowHoursWidth);
+hourArrow.setAttribute("stroke-width", hourArrowWidth);
 hourArrow.setAttribute("stroke-linecap", "round");
 svg.appendChild(hourArrow);
 
 // для стрелок минут
 minuteArrow = document.createElementNS('http://www.w3.org/2000/svg', "line");
 minuteArrow.setAttribute("x1", svgCenterX - svg.getBoundingClientRect().left);
-minuteArrow.setAttribute("y1", svgCenterY - elemForArrowMinutesHeight - svg.getBoundingClientRect().top);
+minuteArrow.setAttribute("y1", svgCenterY - minuteArrowHeight - svg.getBoundingClientRect().top);
 minuteArrow.setAttribute("x2", svgCenterX - svg.getBoundingClientRect().left);
 minuteArrow.setAttribute("y2", svgCenterY);
 minuteArrow.setAttribute("stroke", "black");
-minuteArrow.setAttribute("stroke-width", elemForArrowMinutesWidth);
+minuteArrow.setAttribute("stroke-width", minuteArrowWidth);
 minuteArrow.setAttribute("stroke-linecap", "round");
 svg.appendChild(minuteArrow);
 
 // для стрелок секунд
 secondArrow = document.createElementNS('http://www.w3.org/2000/svg', "line");
 secondArrow.setAttribute("x1", svgCenterX - svg.getBoundingClientRect().left);
-secondArrow.setAttribute("y1", svgCenterY - elemForArrowSecondsHeight - svg.getBoundingClientRect().top);
+secondArrow.setAttribute("y1", svgCenterY - secondArrowHeight - svg.getBoundingClientRect().top);
 secondArrow.setAttribute("x2", svgCenterX - svg.getBoundingClientRect().left);
 secondArrow.setAttribute("y2", svgCenterY);
 secondArrow.setAttribute("stroke", "red");
-secondArrow.setAttribute("stroke-width", elemForArrowSecondsWidth);
+secondArrow.setAttribute("stroke-width", secondArrowWidth);
 secondArrow.setAttribute("stroke-linecap", "round");
 svg.appendChild(secondArrow);
 
