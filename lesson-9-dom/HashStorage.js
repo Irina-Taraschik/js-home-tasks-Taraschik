@@ -41,9 +41,9 @@ buttonAdd.onclick = function() {
 };
 
 buttonGet.onclick = function() {
-  var drink = prompt('Название напитка для информации');
-  var inf = DrinkStorage.GetValue(drink);
-  info.innerHTML = 'Напиток: ' + inf.drink + '  Алкогольный: ' + inf.isAlcohol + '  Рецепт: ' + inf.recipe;
+  var name = prompt('Название напитка для информации');
+  var inf = DrinkStorage.GetValue(name);
+  info.innerHTML = 'Напиток: ' + inf.name + '  Алкогольный: ' + inf.isAlcohol + '  Рецепт: ' + inf.recipe;
 };
 
 buttonDelete.onclick = function() {
